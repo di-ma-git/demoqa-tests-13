@@ -1,4 +1,4 @@
-package tests;
+package guru.qa.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -32,7 +32,8 @@ public class TextBoxTest {
 
         $("[id=output]").shouldHave(text(name), text(email), text("Some address 1"),
                 text("Another address 2"));
-
+        //
+        // $().
 
     }
 }
