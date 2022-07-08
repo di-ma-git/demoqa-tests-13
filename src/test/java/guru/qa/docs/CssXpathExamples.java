@@ -26,7 +26,7 @@ public class CssXpathExamples {
         $(By.id("email")).setValue("123");
 
         // через xPath
-        $x("//*[@id='email']")).setValue("123");
+        $x("//*[@id='email']").setValue("123");
         $(byXpath("//*[@id='email']")).setValue("123");
 
         // <input type="email" class="inputtext login_from_input_box" name="email">
@@ -40,8 +40,8 @@ public class CssXpathExamples {
         $(".login_from_input_box").setValue("123"); // . является сокращение class
         $(".inputtext.login_from_input_box").setValue("123");
         $("input.inputtext.login_from_input_box").setValue("123");
-        $x("//input[@class='login_from_input_box']")).setValue("123");
-        $x("//input[@class='inputtext'][@class='login_from_input_box']")).setValue("123");
+        $x("//input[@class='login_from_input_box']").setValue("123");
+        $x("//input[@class='inputtext'][@class='login_from_input_box']").setValue("123");
 
         // <div class="inputtext">
         //      <input type="email" class="login_from_input_box">
@@ -54,7 +54,7 @@ public class CssXpathExamples {
 
         // <div>Hello qa.guru</div>
         // поиск по тексту через xPath
-        $x("//*[text()='Hello qa.guru']"); // посик по тексту по точному совпадению
+        $x("//*                        [text()='Hello qa.guru']"); // посик по тексту по точному совпадению
         $x("//*[contains(text(), 'qa.guru')]"); // содержит слово или часть текста
         $x("//*[text()[contains(.,'ello qa.gur')]]"); // содержит слово или часть текста
         // найти текст средствами selenide

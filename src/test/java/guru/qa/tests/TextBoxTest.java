@@ -7,13 +7,8 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class TextBoxTest {
+public class TextBoxTest extends TestBase {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-    }
 
     @Test
     void successfulTest() {
@@ -30,8 +25,12 @@ public class TextBoxTest {
         $("[id=permanentAddress]").setValue("Another address 2");
         $("[id=submit]").click();
 
-        $("[id=output]").shouldHave(text(name), text(email), text("Some address 1"),
-                text("Another address 2"));
+        $("[id=output]").shouldHave(
+                text(name),
+                text(email),
+                text("Some address 1"),
+                text("Another address 2")
+        );
         //
         // $().
 
