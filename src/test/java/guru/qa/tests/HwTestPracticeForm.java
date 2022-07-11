@@ -42,7 +42,7 @@ public class HwTestPracticeForm {
         // Hobbies
 
         // Picture
-        //$("#uploadPicture").uploadFile("/Screenshot_7.png");
+        //$("#uploadPicture").uploadFile("/Screenshot.png");
         //$("#uploadPicture").u
         // Current Address
         $("#currentAddress").setValue("Centralnaya Street");
@@ -68,7 +68,7 @@ public class HwTestPracticeForm {
                 text("Arts"),
                 text("Sport"),
                 text("Reading"),
-                text("Screenshot_7.png"),
+//                text("Screenshot.png"),
                 text("Centralnaya Street"),
                 text("Uttah Pradesh"),
                 text("Lucknow")
