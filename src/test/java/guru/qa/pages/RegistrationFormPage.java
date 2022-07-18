@@ -14,7 +14,21 @@ public class RegistrationFormPage {
     public CalendarComponent calendarComponent = new CalendarComponent();
     public ResultsTableComponent resultsTableComponent = new ResultsTableComponent();
     SelenideElement firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName");
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            genderRadioBox = $("#genterWrapper"),
+            phoneNumberInput = $("#userNumber"),
+            dateOfBirthInput = $("#dateOfBirthInput"),
+            subjectInput = $("#subjectsInput"),
+            hobbiesCheckBox = $("#hobbiesWrapper"),
+            uploadPicture = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            stateDrop = $("#state"),
+            stateSelect = $("#stateCity-wrapper"),
+            cityDrop = $("#city"),
+            citySelect = $("#stateCity-wrapper"),
+            submitButton = $("#submit"),
+            resultModalWindow = $("#example-modal-sizes-title-lg");
 
     public RegistrationFormPage openPage() {
         open("/automation-practice-form");
@@ -45,71 +59,71 @@ public class RegistrationFormPage {
     }
 
     public RegistrationFormPage setEmail(String value) {
-        $("#userEmail").setValue(value);
+        emailInput.setValue(value);
         return this;
     }
 
     public RegistrationFormPage setGender(String value) {
-        $("#genterWrapper").$(byText("Male")).click();
+        genderRadioBox.$(byText(value)).click();
         return this;
     }
 
     public RegistrationFormPage setPhoneNumber(String value) {
-        $("#userNumber").setValue(value);
+        phoneNumberInput.setValue(value);
         return this;
     }
 
     public RegistrationFormPage setDateOfBirth(String day, String month, String year) {
-        $("#dateOfBirthInput").click();
+        dateOfBirthInput.click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
     public RegistrationFormPage setDateOfBirthWithKeys(String day, String month, String year) {
-        $("#dateOfBirthInput").sendKeys(day + " " + month + " " + year);
+        dateOfBirthInput.sendKeys(day + " " + month + " " + year);
         return this;
     }
 
     public RegistrationFormPage setSubject(String value) {
-        $("#subjectsInput").sendKeys(value);
-        $("#subjectsInput").pressEnter();
+        subjectInput.sendKeys(value);
+        subjectInput.pressEnter();
         return this;
     }
 
     public RegistrationFormPage setHobbies(String value) {
-        $("#hobbiesWrapper").$(byText(value)).click();
+        hobbiesCheckBox.$(byText(value)).click();
         return this;
     }
 
     public RegistrationFormPage uploadPicture(String value) {
-        $("#uploadPicture").uploadFromClasspath(value);
+        uploadPicture.uploadFromClasspath(value);
         return this;
     }
 
     public RegistrationFormPage setAddress(String value) {
-        $("#currentAddress").setValue(value);
+        addressInput.setValue(value);
         return this;
     }
 
     public RegistrationFormPage selectState(String value) {
-        $("#state").click();
-        $("#stateCity-wrapper").$(byText(value)).click();
+        stateDrop.click();
+        stateSelect.$(byText(value)).click();
         return this;
     }
 
     public RegistrationFormPage selectCity(String value) {
-        $("#city").click();
-        $("#stateCity-wrapper").$(byText(value)).click();
+        cityDrop.click();
+        citySelect.$(byText(value)).click();
         return this;
     }
 
     public RegistrationFormPage pressSubmit() {
-        $("#submit").click();
+        submitButton.click();
         return this;
     }
 
     public RegistrationFormPage checkModalWindow(String value) {
-        $("#example-modal-sizes-title-lg").shouldHave(text(value));
+        resultModalWindow.shouldHave(text(value));
         return this;
     }
 

@@ -16,10 +16,14 @@ public class RegistrationFormWithFakerTest extends TestBase {
     //move to TestData
 //    Faker faker = new Faker();
     Faker faker = new Faker(new Locale("ru"));
+    Faker fakerEN = new Faker(new Locale("en"));
+
     String firstName = faker.address().firstName();
     String lastName = faker.address().lastName();
-    String email = faker.internet().emailAddress();
+    String email = fakerEN.internet().emailAddress();
     String currentAddress = faker.witcher().quote();
+//    String phone = faker.phoneNumber().subscriberNumber(10);
+    String phone = String.valueOf(faker.number().randomNumber(10, true));
 
     @Test
     void successfulTest() {
@@ -34,7 +38,7 @@ public class RegistrationFormWithFakerTest extends TestBase {
         $("#lastName").setValue(lastName);
         $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Male")).click();
-        $("#userNumber").setValue("1231231230");
+        $("#userNumber").setValue(phone);
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("July");
         $(".react-datepicker__year-select").selectOption("2008");
@@ -52,6 +56,6 @@ public class RegistrationFormWithFakerTest extends TestBase {
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(firstName), text(lastName), text(email),
-                text(currentAddress), text("20 July,2008"));
+                text(currentAddress), text(phone), text("20 July,2008"));
     }
 }

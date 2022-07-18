@@ -22,9 +22,9 @@ public class RegistrationFormWithTestDataTest extends TestBase {
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
 
-        $("#firstName").setValue(FIRST_NAME);
-        $("#lastName").setValue(LAST_NAME);
-        $("#userEmail").setValue(EMAIL);
+        $("#firstName").setValue(firstName);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
         $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("1231231230");
         $("#dateOfBirthInput").click();
@@ -43,7 +43,7 @@ public class RegistrationFormWithTestDataTest extends TestBase {
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text(FIRST_NAME), text(LAST_NAME), text(EMAIL),
+        $(".table-responsive").shouldHave(text(firstName), text(lastName), text(email),
                 text("Some address 1"), text("20 July,2008"));
     }
 }
